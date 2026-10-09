@@ -37,7 +37,7 @@ export function Hero() {
     <source src={heroVideo} />
   </video>
     <div className="relative">
-        <motion.div variants={stagger} initial="hidden" animate="show" className="relative ml-5 flex min-h-[calc(100svh-132px)] w-[58.5%] flex-col bg-white/10 px-[26px] pb-[25px] pt-[29px] backdrop-blur-[8px] [container-type:inline-size] max-[1100px]:w-[72%]max-[760px]:ml-3 max-[760px]:min-h-[calc(100svh-116px)] sm:max-[760px]:min-h-[calc(100svh-116px)] max-[760px]:w-[calc(100%-24px)] max-[760px]:px-[19px] max-[760px]:py-6">
+        <motion.div variants={stagger} initial="hidden" animate="show" className="relative ml-5 flex min-h-[calc(100svh-132px)] w-[58.5%] flex-col bg-white/10 px-[26px] pb-[25px] pt-[29px] backdrop-blur-[8px] [container-type:inline-size] max-[1100px]:w-[72%] max-[760px]:mx-3 max-[760px]:w-auto max-[760px]:min-h-[calc(100svh-116px)] max-[760px]:px-[19px] max-[760px]:py-6">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 border border-border opacity-70"
