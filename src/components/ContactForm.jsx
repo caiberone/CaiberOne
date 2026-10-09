@@ -6,7 +6,7 @@ import { Button } from "./ui";
 import { services } from "../data";
 
 const field =
-  "w-full border border-border bg-card px-4 py-3 text-xs outline-none focus:border-primary";
+  "w-full border border-border bg-card px-4 py-3 text-base outline-none sm:text-xs focus:border-primary";
 
 const options = [
   ...services.map((s) => s.title),

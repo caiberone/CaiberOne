@@ -23,7 +23,7 @@ export function Hero() {
     <section
   id="home"
   aria-label="CaiberOne cybersecurity"
-  className="relative isolate h-screen min-h-fit overflow-hidden bg-background pb-8 pt-[100px] max-[760px]:pt-[86px]"
+  className="relative isolate h-screen min-h-fit overflow-hidden bg-background pb-8 pt-[100px] max-[760px]:h-auto max-[760px]:min-h-svh max-[760px]:pt-[86px]"
 >
   <video
     poster={heroPoster}
@@ -37,7 +37,7 @@ export function Hero() {
     <source src={heroVideo} />
   </video>
     <div className="relative">
-        <motion.div variants={stagger} initial="hidden" animate="show" className="relative ml-5 flex min-h-[calc(100svh-132px)] w-[58.5%] flex-col bg-white/10 px-[26px] pb-[25px] pt-[29px] backdrop-blur-[8px] max-[1100px]:w-[57%] max-[760px]:ml-3 max-[760px]:min-h-[calc(100svh-116px)] sm:max-[760px]:min-h-[calc(100svh-116px)] max-[760px]:w-[calc(100%-24px)] max-[760px]:px-[19px] max-[760px]:py-6">
+        <motion.div variants={stagger} initial="hidden" animate="show" className="relative ml-5 flex min-h-[calc(100svh-132px)] w-[58.5%] flex-col bg-white/10 px-[26px] pb-[25px] pt-[29px] backdrop-blur-[8px] [container-type:inline-size] max-[1100px]:w-[72%]max-[760px]:ml-3 max-[760px]:min-h-[calc(100svh-116px)] sm:max-[760px]:min-h-[calc(100svh-116px)] max-[760px]:w-[calc(100%-24px)] max-[760px]:px-[19px] max-[760px]:py-6">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 border border-border opacity-70"
@@ -54,10 +54,10 @@ export function Hero() {
             {/* Bottom Right */}
             <span className="absolute -bottom-px -right-px h-[13px] w-[13px] border-b-2 border-r-2 border-foreground" />
           </div>
-          <motion.span variants={fade} className="text-sm font-semibold leading-normal text-primary max-[480px]:text-[10px]">/ CYBERSECURITY OPERATIONS &amp; ADVISORY</motion.span>
-          <motion.h1 variants={fade} transition={{ duration: 0.65 }} className="mt-5 whitespace-nowrap text-[clamp(34px,min(5vw,calc((100svh_-_392px)_/_7.1)),73px)] font-medium leading-[1.015] min-[1600px]:text-[clamp(34px,min(5vw,calc((100svh_-_392px)_/_7.1)),83px)] max-[1100px]:text-[clamp(34px,min(5vw,calc((100svh_-_392px)_/_7.1)),57px)] max-[760px]:text-[clamp(30px,6.8vw,51px)] max-[480px]:text-[clamp(27px,7vw,35px)]">SECURING ORGANIZATIONS<br />WITH PRACTICAL,<br />RELIABLE CYBERSECURITY<br />SOLUTIONS</motion.h1>
+          <motion.span variants={fade} className="text-sm font-semibold leading-normal max-[480px]:text-[10px]"><span className="text-primary">/</span> CYBERSECURITY OPERATIONS &amp; ADVISORY</motion.span>
+          <motion.h1 variants={fade} transition={{ duration: 0.65 }} className="mt-5 whitespace-nowrap text-[min(calc(100cqw_/_13.4),clamp(30px,calc((100svh_-_392px)_/_7.1),83px))] font-medium leading-[1.015] max-[760px]:whitespace-normal max-[760px]:break-words max-[760px]:text-[clamp(28px,6.8vw,51px)] max-[480px]:text-[clamp(24px,7vw,35px)]">SECURING ORGANIZATIONS<br className="max-[760px]:hidden" /> WITH PRACTICAL,<br className="max-[760px]:hidden" /> RELIABLE CYBERSECURITY<br className="max-[760px]:hidden" /> SOLUTIONS</motion.h1>
           <motion.p variants={fade} className="mt-8 text-[15px] font-semibold uppercase leading-[1.7] min-[1600px]:text-[17px] max-[1100px]:text-[13px] max-[760px]:mt-6 max-[480px]:text-[11px] max-[480px]:leading-[1.55]">AI-ASSISTED SECURITY OPERATIONS, TESTING, AND COMPLIANCE READINESS<br className="max-[480px]:hidden" /> — IMPLEMENTED, DOCUMENTED, AND HANDED TO YOUR TEAM.</motion.p>
-          <motion.div variants={fade} className="mt-auto flex flex-wrap gap-2.5 pt-1 sm:pt-[30px]"><Button primary book>Book a scoping call</Button><Button to="/services">See our services</Button></motion.div>
+          <motion.div variants={fade} className="mt-auto flex flex-wrap gap-2.5 pt-6 sm:pt-[30px]"><Button primary book>Book a scoping call</Button><Button to="/services">See our services</Button></motion.div>
         </motion.div>
        </div>
     </section>
@@ -67,7 +67,7 @@ export function Hero() {
 export function Stats() {
   return (
     <Frame id="more" className="mt-3 p-6 scroll-mt-28">
-      <div className="grid gap-6 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
         {[
           [20, "Security tools integrated", true],
           [services.length, "Service capabilities", false],
@@ -80,7 +80,7 @@ export function Stats() {
               {showPlus && "+"}
             </p>
 
-            <p className="mt-2 text-xs uppercase">{l}</p>
+            <p className="mt-2 text-[11px] uppercase sm:text-xs">{l}</p>
           </div>
         ))}
       </div>
@@ -206,7 +206,7 @@ export function CTA() {
   return (
     <Frame className="mt-20 min-h-[520px] overflow-hidden">
       <video autoPlay muted loop playsInline className={`absolute inset-0 h-full w-full object-cover ${redVideo}`}><source src={ctaVideo} /></video>
-      <div className="absolute bg-cta-overlay" />
+      <div className="absolute inset-0 bg-cta-overlay" />
       <Reveal className="relative flex min-h-[520px] flex-col items-center justify-center px-6 text-center">
         <Heading center>Ready to see what a<br />working process looks like?</Heading>
         <Lead>Tell us about your needs and a consultant will reach out within one business day.</Lead>
