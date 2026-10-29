@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
-import emailjs from "@emailjs/browser";
 import { Button } from "./ui";
 import { services } from "../data";
 
@@ -22,22 +21,26 @@ export default function ContactForm() {
 
     setState({ status: "sending", ref: "" });
 
+    const form = e.target;
+
     try {
-      await emailjs.sendForm(
-        "service_2fuuh5q",
-        "template_uduy71k",
-        e.target,
-        "7nJVgsVNuINo2c3yt"
-      );
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+      const data = await res.json();
+
+      if (!res.ok || !data.success) throw new Error(data.message || "Submission failed");
 
       setState({
         status: "done",
         ref: `CB-${Date.now().toString(36).toUpperCase()}`,
       });
 
-      e.target.reset();
+      form.reset();
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.error("Web3Forms Error:", error);
       setState({ status: "error", ref: "" });
     }
   }
@@ -73,6 +76,9 @@ export default function ContactForm() {
       <span className="pointer-events-none absolute -right-px -top-px h-[13px] w-[13px] border-r-2 border-t-2 border-foreground" />
       <span className="pointer-events-none absolute -bottom-px -left-px h-[13px] w-[13px] border-b-2 border-l-2 border-foreground" />
       <span className="pointer-events-none absolute -bottom-px -right-px h-[13px] w-[13px] border-b-2 border-r-2 border-foreground" />
+
+      <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY} />
+      <input type="hidden" name="subject" value="New Contact Form Submission - CaiberOne" />
 
       <label className="grid gap-2 text-[11px] uppercase">
         Full name *
